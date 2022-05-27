@@ -17,8 +17,8 @@ return new class extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('sn');
-            $table->text('qrcode')->nullable();
+            $table->string('sn')->unique();
+            $table->text('qrcode')->unique()->nullable();
             $table->foreignIdFor(Course::class);
             $table->timestamps();
         });

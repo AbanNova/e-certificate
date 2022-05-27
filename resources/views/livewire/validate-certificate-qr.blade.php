@@ -1,5 +1,5 @@
 <div>
-    <x-guest-layout>
+    <x-app-layout>
         <br />
 
         <div class="flex justify-center">
@@ -29,5 +29,5 @@
                 </script>
             </div>
         </div>
-    </x-guest-layout>
+    </x-app-layout>
 </div>

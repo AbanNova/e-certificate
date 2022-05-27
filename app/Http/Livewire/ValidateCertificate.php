@@ -25,6 +25,22 @@ class ValidateCertificate extends Component
     {
         return redirect('/qr');
     }
+    public function newCertificate()
+    {
+        return redirect('/new_certificate');
+    }
+    public function newCourse()
+    {
+        return redirect('/new_course');
+    }
+    public function allCertificates()
+    {
+        return redirect('/certificates');
+    }
+    public function allCourses()
+    {
+        return redirect('/courses');
+    }
     public function render()
     {
         return view('livewire.validate-certificate');
