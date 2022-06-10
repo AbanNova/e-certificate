@@ -3,7 +3,10 @@
 use Illuminate\Support\Str;
 
 $databaseUrl = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
+$host = $url["host"] ?? null;
+$username = $url["user"] ?? null;
+$password = $url["pass"] ?? null;
+$database = substr($url["path"], 1);
 return [
 
     /*
@@ -64,22 +67,16 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-        'mysql_url' => [
-            'url' => $databaseUrl,
-            'host' => $databaseUrl['host'],
-            'port' => 3306,
-            'database' => substr($url["path"], 1),
-            'username' => $databaseUrl['user'],
-            'password' => $databaseUrl['pass'],
+        'mysql_url' =>     array(
+            'driver' => 'mysql',
+            'host' => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
-        ],
-
+        ),
 
         'pgsql' => [
             'driver' => 'pgsql',
