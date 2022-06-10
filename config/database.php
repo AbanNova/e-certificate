@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 return [
 
@@ -65,7 +65,7 @@ return [
             ]) : [],
         ],
         'mysql_url' =>     array(
-            'url' => $url,
+           // 'url' => $url,
             'driver' => 'mysql',
             'host' => 'us-cdbr-east-05.cleardb.net',
             'database' => 'heroku_84c3f1402b535de',
