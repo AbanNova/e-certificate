@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+$databaseUrl = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
 return [
 
     /*
@@ -62,6 +64,22 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+        'mysql_url' => [
+            'url' => $databaseUrl,
+            'host' => $databaseUrl['host'],
+            'port' => 3306,
+            'database' => substr($url["path"], 1),
+            'username' => $databaseUrl['user'],
+            'password' => $databaseUrl['pass'],
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
 
         'pgsql' => [
             'driver' => 'pgsql',
@@ -125,7 +143,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
