@@ -2,11 +2,8 @@
 
 use Illuminate\Support\Str;
 
-$databaseUrl = parse_url(getenv("CLEARDB_DATABASE_URL"));
-$host = $url["host"] ?? null;
-$username = $url["user"] ?? null;
-$password = $url["pass"] ?? null;
-$database = substr($url["path"], 1);
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
 return [
 
     /*
@@ -68,11 +65,12 @@ return [
             ]) : [],
         ],
         'mysql_url' =>     array(
+            'url' => $url,
             'driver' => 'mysql',
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'host' => 'us-cdbr-east-05.cleardb.net',
+            'database' => 'heroku_84c3f1402b535de',
+            'username' => 'b06eb94855c6a9',
+            'password' => 'dc3a2a89',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
