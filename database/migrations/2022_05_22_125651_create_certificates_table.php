@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('sn')->unique();
-            $table->text('qrcode')->unique()->nullable();
+            $table->text('qrcode',6000)->unique()->nullable();
             $table->foreignIdFor(Course::class);
             $table->timestamps();
         });
