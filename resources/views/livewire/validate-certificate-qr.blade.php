@@ -15,8 +15,9 @@
                         video: document.getElementById('preview')
                     });
                     scanner.addListener('scan', function(content) {
-
-                        Livewire.emit('scanning', content);
+                        console.log('Scanned');
+                        @this.scanned(content)
+                       // Livewire.emit('scanning', content);
                     });
                     Instascan.Camera.getCameras().then(function(cameras) {
                         if (cameras.length > 0) {

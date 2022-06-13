@@ -53,11 +53,10 @@
                         id="exampleInputPassword2" placeholder="Serial Number">
                 </div>
                 <div class="mb-3 xl:w-96">
-                    <select
-                    wire:model='course_id'
+                    <select wire:model='course_id'
                         class="form-select appearance-none
                       block
-                      
+
                       px-3
                       py-1.5
                       text-base
@@ -72,9 +71,9 @@
                       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         aria-label="Default select example">
                         <option selected>select course</option>
-               @foreach ($courses as $c )
-               <option value="{{$c->id}}">{{$c->name}}</option>
-               @endforeach
+                        @foreach ($courses as $c)
+                            <option value="{{ $c->id }}">{{ $c->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <button type="submit"
@@ -97,8 +96,33 @@
             duration-150
             ease-in-out">create</button>
 
-            </form>
+            </form> </br>
+            </br>
+            <button wire:click="home"
+                class="
+    w-full
+    px-6
+    py-2.5
+    bg-blue-600
+    text-white
+    font-medium
+    text-xs
+    leading-tight
+    uppercase
+    rounded
+    shadow-md
+    hover:bg-blue-700 hover:shadow-lg
+    focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+    active:bg-blue-800 active:shadow-lg
+    transition
+    duration-150
+    ease-in-out">Home</button>
         </div>
+        @if ($qr != null)
+            <div class="p-3  rounded-b-lg break-words text-white">
+                {!! $qr !!}
+            </div>
+        @endif
 
     </x-app-layout>
 </div>
