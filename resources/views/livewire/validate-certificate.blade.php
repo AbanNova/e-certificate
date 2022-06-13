@@ -75,7 +75,7 @@
                     </a>
                 @else
                     <a href="#">
-                        <img class="rounded-t-lg" src="{{ secure_asset('img/cer.png') }}" alt="" />
+                        <img class="rounded-t-lg" src="{{ url('img/cer.png') }}" alt="" />
 
                     </a>
                 @endif
