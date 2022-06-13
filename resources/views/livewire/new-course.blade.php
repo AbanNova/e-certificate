@@ -10,7 +10,8 @@
     <br/>
     <div>
     <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-        <form>
+        <form wire:submit.prevent='store'>
+            @csrf
           <div class="form-group mb-6">
             <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Course Name</label>
             <input wire:model="name" type="text" class="form-control
@@ -32,7 +33,7 @@
             <small id="courseHelp" class="block mt-1 text-xs text-gray-600">make it unique</small>
           </div>
 
-          <button wire:click="store" class="
+          <button type="submit" class="
             px-6
             py-2.5
             bg-blue-600
