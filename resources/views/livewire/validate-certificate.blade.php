@@ -4,13 +4,28 @@
         {{-- Because she competes with no one, no one can compete with her. --}}
         <div class="flex flex-col justify-center">
             @auth
-            <div class="flex justify-center">
-                &nbsp;  <button wire:click='allCourses' type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">All Courses</button>
-                &nbsp;  <button wire:click='allCertificates' type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">All Certificates</button>
-            &nbsp;<button wire:click='newCertificate' type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" >Create Certificate</button>
-            &nbsp;  <button wire:click='newCourse' type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create Course</button>
-            </div>
+                <div class="flex justify-center">
+                    &nbsp; <button wire:click='allCourses' type="button"
+                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">All
+                        Courses</button>
+                    &nbsp; <button wire:click='allCertificates' type="button"
+                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">All
+                        Certificates</button>
+                    &nbsp; <button wire:click='allDCertificates' type="button"
+                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ">All
+                        Devices Certificates</button>
+                    &nbsp;<button wire:click='newCertificate' type="button"
+                        class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create
+                        Certificate</button>
+                    &nbsp;<button wire:click='newDCertificate' type="button"
+                        class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create
+                        Device Certificate</button>
+                    &nbsp; <button wire:click='newCourse' type="button"
+                        class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create
+                        Course</button>
+                </div>
             @endauth
+            <br />
             @if (Session::has('err'))
                 <div class="bg-red-600 shadow-lg mx-auto w-96 max-w-full text-sm pointer-events-auto bg-clip-padding rounded-lg block mb-3"
                     id="static-example" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="false">
@@ -24,7 +39,7 @@
                                     d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z">
                                 </path>
                             </svg>
-                            Sorryinline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out
+                            Sorry
                         </p>
                         <div class="flex items-center">
                             <p class="text-white opacity-90 text-xs">Not Found</p>
@@ -41,7 +56,7 @@
         </div>
         <div class="flex justify-center">
             <div class="rounded-lg shadow-lg bg-white max-w-sm">
-                @if (Session::has('msg'))
+                @if (Session::has('img'))
                     <a href="#!">
 
                         <div class="bg-green-600 shadow-lg mx-auto w-96 max-w-full text-sm pointer-events-auto bg-clip-padding rounded-lg block mb-3"
@@ -67,7 +82,25 @@
                                 </div>
                             </div>
                             <div class="p-3 bg-green-500 rounded-b-lg break-words text-white">
-                                {!! Session::get('img') !!}
+                                {!! Session::get('img') !!} <br>
+
+                                @isset(Session::get('data')['name'])
+                                    Name : {{ Session::get('data')['name'] }} <br>
+                                @endisset
+                                @isset(Session::get('data')['sn'])
+                                SN : {{ Session::get('data')['sn'] }} <br>
+
+                                Certified at : {{ Session::get('data')['start'] }} <br>
+                                End at : {{ Session::get('data')['end'] ?? 'Not ENd' }} <br>
+                            @endisset
+
+
+                                @isset(Session::get('data')['model'])
+                                    Model :{{ Session::get('data')['model'] }} <br>
+                                @endisset
+                                @isset(Session::get('data')['company'])
+                                    Company :{{ Session::get('data')['company'] }} <br>
+                                @endisset
                             </div>
                             <br />
 
@@ -111,10 +144,12 @@
 
                     <button wire:click='findBySN' type="button"
                         class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Validate</button>
-                &nbsp;
-                &nbsp;
-                <button wire:click='findByQR' type='button'  class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"> Scan QRCode</button>
-                    </div>
+                    &nbsp;
+                    &nbsp;
+                    <button wire:click='findByQR' type='button'
+                        class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                        Scan QRCode</button>
+                </div>
 
             </div>
         </div>

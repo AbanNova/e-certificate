@@ -15,8 +15,7 @@
                 @csrf
                 <div class="form-group mb-6">
                     <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Name</label>
-                    <input wire:model="name" type="text"
-                        class="form-control
+                    <input wire:model="name" type="text" class="form-control
               block
               w-full
               px-3
@@ -30,14 +29,13 @@
               transition
               ease-in-out
               m-0
-              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Name">
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
+                        aria-describedby="emailHelp" placeholder="Name">
                 </div>
                 <div class="form-group mb-6">
-                    <label for="exampleInputPassword2" class="form-label inline-block mb-2 text-gray-700">Serial
-                        Number</label>
-                    <input wire:model="sn" type="text"
-                        class="form-control block
+                    <label for="exampleInputPassword2" class="form-label inline-block mb-2 text-gray-700">
+                        Company</label>
+                    <input wire:model="company" type="text" class="form-control block
               w-full
               px-3
               py-1.5
@@ -50,39 +48,54 @@
               transition
               ease-in-out
               m-0
-              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        id="exampleInputPassword2" placeholder="Serial Number">
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
+                        placeholder="Company">
                 </div>
-                <div class="mb-3 xl:w-96">
-                    <select wire:model='course_id'
-                        class="form-select appearance-none
-                      block
 
-                      px-3
-                      py-1.5
-                      text-base
-                      font-normal
-                      text-gray-700
-                      bg-white bg-clip-padding bg-no-repeat
-                      border border-solid border-gray-300
-                      rounded
-                      transition
-                      ease-in-out
-                      m-0
-                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        aria-label="Default select example">
-                        <option selected>select course</option>
-                        @foreach ($courses as $c)
-                            <option value="{{ $c->id }}">{{ $c->name }}</option>
-                        @endforeach
-                    </select>
+                <div class="form-group mb-6">
+                    <label for="exampleInputPassword2" class="form-label inline-block mb-2 text-gray-700">Serial
+                        Number</label>
+                    <input wire:model="sn" type="text" class="form-control block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              text-gray-700
+              bg-white bg-clip-padding
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
+                        placeholder="Serial Number">
+                </div>
+
+                <div class="form-group mb-6">
+                    <label for="exampleInputPassword2" class="form-label inline-block mb-2 text-gray-700">
+                        Details</label>
+                    <textarea wire:model="details" type="text" class="form-control block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              text-gray-700
+              bg-white bg-clip-padding
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
+                        placeholder="Details"> </textarea>
                 </div>
 
                 <div class="form-group mb-6">
                     <label for="exampleInputPassword2" class="form-label inline-block mb-2 text-gray-700">Certificate
                         End At</label>
-                    <input wire:model="end_at" type="date"
-                        class="form-control block
+                    <input wire:model="end_at" type="date" class="form-control block
               w-full
               px-3
               py-1.5
@@ -95,13 +108,12 @@
               transition
               ease-in-out
               m-0
-              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        id="exampleInputPassword2" placeholder="End At">
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
+                        placeholder="End At">
                 </div>
                 <label for="vehicle1"> Do not End ?</label><br>
-                <input wire:model="has_end" type="checkbox"  /><br><br>
-                <button type="submit"
-                    class="
+                <input wire:model="has_end" type="checkbox" /><br><br>
+                <button type="submit" class="
             w-full
             px-6
             py-2.5
@@ -122,8 +134,7 @@
 
             </form> </br>
             </br>
-            <button wire:click="home"
-                class="
+            <button wire:click="home" class="
     w-full
     px-6
     py-2.5
@@ -143,9 +154,9 @@
     ease-in-out">Home</button>
         </div>
         @if ($qr != null)
-            <div class="p-3  rounded-b-lg break-words text-white">
-                {!! $qr !!}
-            </div>
+        <div class="p-3  rounded-b-lg break-words text-white">
+            {!! $qr !!}
+        </div>
         @endif
 
     </x-app-layout>

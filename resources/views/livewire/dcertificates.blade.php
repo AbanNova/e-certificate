@@ -1,5 +1,6 @@
 <div>
     <x-app-layout>
+
     {{-- Be like water. --}}
     <h1>All Certificates</h1>
     <br />
@@ -19,7 +20,10 @@
                         sn
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        course
+                        company
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        model
                     </th>
                     <th scope="col" class="px-6 py-3">
                         expire at
@@ -44,7 +48,10 @@
                         {{$cer->sn}}
                     </td>
                     <td class="px-6 py-4">
-                        {{$cer->course->name}}
+                        {{$cer->company}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{$cer->model}}
                     </td>
                     <td class="px-6 py-4">
                         {{$cer->end_at}}

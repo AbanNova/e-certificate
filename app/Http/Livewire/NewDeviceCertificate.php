@@ -3,18 +3,23 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Certificate;
-use App\Models\Course;
 use Illuminate\Support\Str;
+use App\Models\DeviceCertificate;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class NewCertificate extends Component
+class NewDeviceCertificate extends Component
 {
+    public function render()
+    {
+        return view('livewire.new-device-certificate');
+    }
+
     public $name;
     public $sn;
+    public $company;
+    public $details;
     public $end_at;
-    public $has_end;
-    public $course_id;
+    public $model;
     public $qr = null;
 
 
@@ -25,16 +30,13 @@ class NewCertificate extends Component
     }
     public function store()
     {
-        $cer = new Certificate;
+        $cer = new DeviceCertificate;
         $cer->name = $this->name;
-        if($this->has_end==true){
-            $cer->end_at = null;
-        }else{
-            $cer->end_at = $this->end_at;
-        }
-
         $cer->sn = $this->sn;
-        $cer->course_id = $this->course_id;
+        $cer->model = $this->model;
+        $cer->end_at = $this->end_at;
+        $cer->company = $this->company;
+        $cer->details = $this->details;
         $cer->qrcode = $this->generateNewQR();
         $cer->save();
         $this->qr = $cer->qrcode;
@@ -54,8 +56,5 @@ class NewCertificate extends Component
         return (string)$qrcode;
     }
 
-    public function render()
-    {
-        return view('livewire.new-certificate', ['courses' => Course::all()]);
-    }
+
 }

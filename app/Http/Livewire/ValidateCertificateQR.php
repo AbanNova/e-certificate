@@ -5,8 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Certificate;
 use Illuminate\Support\Facades\Session;
+use App\Http\Livewire\ValidateCertificate;
 
-class ValidateCertificateQR extends Component
+class ValidateCertificateQR extends ValidateCertificate
 {
     protected $listeners = ['scanning' => 'scanned'];
     public function render()
@@ -16,10 +17,10 @@ class ValidateCertificateQR extends Component
 
     public function scanned($sn)
     {
-        $this->findBySN($sn);
+        $this->findBySN_fun($sn);
         return redirect('/');
     }
-    public function findBySN($SN)
+    /*public function findBySN($SN)
     {
         $cer = Certificate::where('sn', $SN)->first();
         if (null !== ($cer)) {
@@ -28,5 +29,5 @@ class ValidateCertificateQR extends Component
         } else {
             Session::flash('err', 'soory there is no cetificate like this !');
         }
-    }
+    }*/
 }

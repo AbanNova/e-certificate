@@ -14,12 +14,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('certificates', function (Blueprint $table) {
+        Schema::create('device_certificates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('model')->nullable();
+            $table->string('company');
             $table->string('sn')->unique();
             $table->text('qrcode',6000)->nullable();
-            $table->foreignIdFor(Course::class);
+            $table->text('details',6000)->nullable();
             $table->timestamp('end_at')->nullable();
             $table->timestamps();
         });
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('certificates');
+        Schema::dropIfExists('device_certificates');
     }
 };

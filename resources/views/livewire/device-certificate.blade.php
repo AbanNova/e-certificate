@@ -19,10 +19,7 @@
                         sn
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        course
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        expire at
+                        company
                     </th>
                     <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Actions</span>
@@ -44,10 +41,7 @@
                         {{$cer->sn}}
                     </td>
                     <td class="px-6 py-4">
-                        {{$cer->course->name}}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{$cer->end_at}}
+                        {{$cer->company}}
                     </td>
                     <td class="px-6 py-4 text-right">
                         <button  wire:click="delete({{$cer->id}})" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
